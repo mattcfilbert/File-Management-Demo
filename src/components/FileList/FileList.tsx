@@ -107,7 +107,7 @@ function FileList({displayFiles}: FileListProps) {
                         }
                     }}/>
                 </div>
-                <div className="select-count">Selected {numChecked}</div>
+                <div className="select-count" role="note">Selected {numChecked}</div>
                 <div>
                     <button className="download" disabled={!availableChecked} onClick={downloadFiles}><FontAwesomeIcon icon={faDownload}/> Download Selected</button>
                 </div>
