@@ -4,6 +4,7 @@ import './App.css';
 import { intakeData } from './utils/ApiPayloadUtils';
 import DisplayFile from './types/DisplayFile';
 import ApiPayload from './types/ApiPayload';
+import FileList from './components/FileList/FileList';
 
 
 function App() {
@@ -29,24 +30,11 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <ul>
-          {displayedFiles.map((f, i) => {
-            return <li key={i}> {f.name}, {f.checked.toString()}</li>
-          })}
-        </ul>
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>File Management Demo</h1>
       </header>
+      <main>
+        <FileList files={displayedFiles}/>
+      </main>
     </div>
   );
 }
