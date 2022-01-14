@@ -30,6 +30,7 @@ button:disabled {
 
 .flex-cell {
   padding: 0.5rem 0.1rem;
+  overflow-x: scroll;
 }
 
 @media all and (max-width: 760px) {
