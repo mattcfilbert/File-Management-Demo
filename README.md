@@ -1,3 +1,28 @@
+# File Manager Demo
+
+## Constraints
+
+- Make a fully responsive, secure, performant, and accessible file management system in under 4 hours while rewatching Wheel of Time in the background (I wasn't totally old at first, but episode 6 really turned me around and made me more appreicate the ones that came before it, but I digress)
+- Strictly limit the tools you can use (e.g. no component libraries)
+
+## Tools Used
+
+- Font Awesome for icons
+- React Testing Library for testing
+- Create React App for spinning up application (more info below)
+
+## With more time...
+
+- Further review accessibility (was considering an aria live region, but decided against due to inputs being updated within)
+- Test JSON sanitization utils
+- Invest more time into responsive design (e.g. deeper dive into views beyond mobile and laptop/tablet)
+- Likely revisted the check management logic and moved the Action Bar into its own component (single responsibility principle)
+
+## With more tools...
+
+- Would leverage component library (e.g. for better looking checkbox) - this could also have been prioritized with more time
+- May have leveraged a layout tool, though switching from grid to flex appears to provide a solid output for both mobile and non-mobile users
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
