@@ -14,6 +14,7 @@ function FileList({displayFiles}: FileListProps) {
     const [files, setFiles] = useState<DisplayFile[]>([])
     const [masterCheck, setMasterCheck] = useState<SelectAllCheck>(SelectAllCheck.None)
     const [indeterminate, setIndeterminate] = useState<boolean>(false)
+    const [availableChecked, setAvailableChecked] = useState<number>(0)
 
     useEffect(() => {
         setFiles(displayFiles)
@@ -36,11 +37,14 @@ function FileList({displayFiles}: FileListProps) {
 
     function updateNumChecked(arr: DisplayFile[]): void {
         let count = 0
+        let availableCount = 0
         arr.forEach((el) => {
             if(el.checked) {
                 count++
+                if(el.status === "available") availableCount++
             }
         })
+        setAvailableChecked(availableCount)
         setNumChecked(count)
         updateAllCheck(count)
     }
@@ -66,10 +70,12 @@ function FileList({displayFiles}: FileListProps) {
         if(masterCheck === SelectAllCheck.All) {
             setMasterCheck(SelectAllCheck.None)
             setNumChecked(0)
+            setAvailableChecked(0)
             selectAll(false)
         } else {
             setMasterCheck(SelectAllCheck.All)
             setNumChecked(files.length)
+            setAvailableChecked(files.filter(f => f.status === "available").length)
             selectAll(true)
         }
     }
@@ -87,7 +93,7 @@ function FileList({displayFiles}: FileListProps) {
                 </div>
                 <div className="select-count">Selected {numChecked}</div>
                 <div>
-                    <button className="download"><FontAwesomeIcon icon={faDownload}/> Download Selected</button>
+                    <button className="download" disabled={!availableChecked} onClick={() => console.log("test")}><FontAwesomeIcon icon={faDownload}/> Download Selected</button>
                 </div>
             </div>
             <div role="table" aria-label="File Management Table" >
