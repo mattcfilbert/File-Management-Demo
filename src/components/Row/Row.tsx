@@ -1,10 +1,14 @@
-import React, { useState } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircle } from '@fortawesome/free-solid-svg-icons'
+import './Row.css'
 import DisplayFile from '../../types/DisplayFile';
 interface RowProps {
     file: DisplayFile
 }
 
-
+function circleClass(status: string): string {
+    return status === "available" ? "green" : "clear"
+}
 
 function Row({file}: RowProps) { 
     return (
@@ -13,7 +17,10 @@ function Row({file}: RowProps) {
             <div className="" role="cell">{file.name}</div>
             <div className="" role="cell">{file.device}</div>
             <div className="" role="cell">{file.path}</div>
-            <div className="" role="cell">{file.status}</div>
+            <div className="" role="cell">
+                <FontAwesomeIcon className={"circle " + circleClass(file.status)} icon={faCircle}/>
+                {file.status}
+                </div>
         </div>
     )
 }
