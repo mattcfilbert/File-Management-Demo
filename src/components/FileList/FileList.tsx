@@ -12,10 +12,20 @@ interface FileListProps {
 function FileList({displayFiles}: FileListProps) { 
     const [numChecked, setNumChecked] = useState<number>(0)
     const [files, setFiles] = useState<DisplayFile[]>([])
+    const [masterCheck, setMasterCheck] = useState<SelectAllCheck>(SelectAllCheck.None)
+    const [indeterminate, setIndeterminate] = useState<boolean>(false)
 
     useEffect(() => {
         setFiles(displayFiles)
     }, [displayFiles])
+
+    useEffect(() => {
+        if(masterCheck === "SOME") {
+            setIndeterminate(true)
+        } else {
+            setIndeterminate(false)
+        }
+    }, [masterCheck])
 
     function updateSelect(i: number): void {
         let temp = [...files]
@@ -32,13 +42,48 @@ function FileList({displayFiles}: FileListProps) {
             }
         })
         setNumChecked(count)
+        updateAllCheck(count)
+    }
+
+    function updateAllCheck(count: number): void {
+        if(count === files.length) {
+            setMasterCheck(SelectAllCheck.All)
+        } else if(count > 0) {
+            setMasterCheck(SelectAllCheck.Some)
+        } else {
+            setMasterCheck(SelectAllCheck.None)
+        }
+       
+    }
+
+    function selectAll(bool: boolean): void {
+        let temp = [...files]
+        temp.forEach(f => f.checked = bool)
+        setFiles(temp)
+    }
+
+    function handleAllCheck(): void {
+        if(masterCheck === SelectAllCheck.All) {
+            setMasterCheck(SelectAllCheck.None)
+            setNumChecked(0)
+            selectAll(false)
+        } else {
+            setMasterCheck(SelectAllCheck.All)
+            setNumChecked(files.length)
+            selectAll(true)
+        }
     }
 
     return (
         <>
             <div className="action-bar">
                 <div>
-                    <input type="checkbox" title="Toggle Select All" />
+                    <input type="checkbox" title="Toggle Select All" aria-label={"Files checked: " + masterCheck} onClick={handleAllCheck} checked={masterCheck === "ALL"} 
+                        ref={input => {
+                        if (input) {
+                        input.indeterminate = indeterminate;
+                        }
+                    }}/>
                 </div>
                 <div className="select-count">Selected {numChecked}</div>
                 <div>
