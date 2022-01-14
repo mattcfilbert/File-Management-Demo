@@ -2,6 +2,7 @@ import { faDownload } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react'
 import DisplayFile from '../../types/DisplayFile';
+import { SelectAllCheck } from '../../types/SelectAllCheck';
 import Row from '../Row/Row';
 import './FileList.css'
 interface FileListProps {
@@ -15,6 +16,23 @@ function FileList({displayFiles}: FileListProps) {
     useEffect(() => {
         setFiles(displayFiles)
     }, [displayFiles])
+
+    function updateSelect(i: number): void {
+        let temp = [...files]
+        temp[i].checked = !temp[i].checked
+        updateNumChecked(temp)
+        setFiles(temp)
+    }
+
+    function updateNumChecked(arr: DisplayFile[]): void {
+        let count = 0
+        arr.forEach((el) => {
+            if(el.checked) {
+                count++
+            }
+        })
+        setNumChecked(count)
+    }
 
     return (
         <>
@@ -37,7 +55,7 @@ function FileList({displayFiles}: FileListProps) {
                 <div role="columnheader" title="Status">Status</div>
             </div>
                 {files.map((file, i) => {
-                    return <Row file={file} key={i}/>
+                    return <Row file={file} index={i} updateSelect={updateSelect} key={i}/>
                 })}
             </div>
        </>

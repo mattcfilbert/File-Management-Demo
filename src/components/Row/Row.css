@@ -1,11 +1,30 @@
+:root {
+	--light-gray: #F0F0F0;
+	--dark-gray: #D3D3D3;
+	--green: #81D133;
+}
+
 .circle {
 	margin-right: .25rem;
 }
 
 .green {
-	color: #81D133
+	color: var(--green)
 }
 
 .clear {
 	color: transparent
+}
+
+.row {
+	font-size: smaller;
+}
+
+.row:hover {
+	background-color: var(--light-gray);
+	cursor: pointer;
+}
+
+.row:hover.checked, .checked {
+	background-color: var(--dark-gray);
 }
