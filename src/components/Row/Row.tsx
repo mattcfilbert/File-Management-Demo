@@ -8,7 +8,13 @@ interface RowProps {
 
 function Row({file}: RowProps) { 
     return (
-        <li>{file.name}</li>
+        <div className="grid-table-row" role="row">
+            <div className="" role="cell"><input type="checkbox" defaultChecked={file.checked} /></div>
+            <div className="" role="cell">{file.name}</div>
+            <div className="" role="cell">{file.device}</div>
+            <div className="" role="cell">{file.path}</div>
+            <div className="" role="cell">{file.status}</div>
+        </div>
     )
 }
 

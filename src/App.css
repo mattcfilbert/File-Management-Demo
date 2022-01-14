@@ -1,0 +1,6 @@
+.grid-table-row {
+	display: grid;
+	grid-template-columns: 5% 13% 13% 50% 19%;
+	border-bottom: solid #eee .5px;
+  padding: 0.5rem 0.1rem;
+}
