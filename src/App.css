@@ -1,6 +1,20 @@
+:root {
+	--light-gray: #F0F0F0;
+	--dark-gray: #D3D3D3;
+	--green: #81D133;
+}
+
 .grid-table-row {
 	display: grid;
 	grid-template-columns: 5% 13% 13% 50% 19%;
 	border-bottom: solid #eee .5px;
   padding: 0.5rem 0.1rem;
+}
+
+input:hover, button:hover {
+	cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed
 }

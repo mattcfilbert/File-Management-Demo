@@ -80,6 +80,22 @@ function FileList({displayFiles}: FileListProps) {
         }
     }
 
+    function downloadFiles(): void {
+        let message = "Downloaded files:"
+        let count = 0
+        let warning = false
+        files.forEach((f) => {
+            if(f.status === "available" && f.checked === true) {
+                count++
+                message += `\nFile ${count}: from device ${f.device} at path ${f.path}`
+            } else if(f.status !== "available" && f.checked === true) {
+                warning = true
+            }
+        })
+        if(warning) message += "\n\nNOTE: Only available files can be downloaded."
+        alert(message)
+    }
+
     return (
         <>
             <div className="action-bar">
@@ -93,7 +109,7 @@ function FileList({displayFiles}: FileListProps) {
                 </div>
                 <div className="select-count">Selected {numChecked}</div>
                 <div>
-                    <button className="download" disabled={!availableChecked} onClick={() => console.log("test")}><FontAwesomeIcon icon={faDownload}/> Download Selected</button>
+                    <button className="download" disabled={!availableChecked} onClick={downloadFiles}><FontAwesomeIcon icon={faDownload}/> Download Selected</button>
                 </div>
             </div>
             <div role="table" aria-label="File Management Table" >
