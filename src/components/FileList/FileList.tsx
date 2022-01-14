@@ -100,7 +100,7 @@ function FileList({displayFiles}: FileListProps) {
         <>
             <div className="action-bar">
                 <div>
-                    <input type="checkbox" title="Toggle Select All" aria-label={"Files checked: " + masterCheck} onClick={handleAllCheck} checked={masterCheck === "ALL"} 
+                    <input type="checkbox" title="Toggle Select All" aria-label={"Files checked: " + masterCheck} onChange={handleAllCheck} checked={masterCheck === "ALL"} 
                         ref={input => {
                         if (input) {
                         input.indeterminate = indeterminate;

@@ -20,7 +20,7 @@ function Row({file, index, updateSelect}: RowProps) {
             <div className="flex-cell" role="cell">{file.device}</div>
             <div className="flex-cell" role="cell">{file.path}</div>
             <div className="flex-cell" role="cell">
-                <FontAwesomeIcon className={"circle " + circleClass(file.status)} icon={faCircle}/>
+                <FontAwesomeIcon data-testid="circle" className={"circle " + circleClass(file.status)} icon={faCircle}/>
                 {file.status}
             </div>
         </div>
