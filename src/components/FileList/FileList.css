@@ -13,3 +13,35 @@
 	background: none;
 	border: none;
 }
+
+.header {
+    border-top: .5px solid var(--darker-gray);
+}
+
+@media all and (max-width: 760px) {
+
+	  .action-bar {
+		  display: flex;
+		  width: 100%;
+		  position: fixed;
+		  justify-content: center;
+		  background-color: var(--light-gray);
+		  top: 0;
+		  padding-left: 0;
+	  }
+
+	  .header {
+		  border-top: solid .5px var(--darker-gray)
+	  }
+
+	
+	  .header .flex-cell {
+		border-bottom: solid .5px var(--darker-gray);
+	  }
+
+	  .header .flex-cell:last-of-type {
+		border-bottom: none;
+	  }
+  
+	
+  }

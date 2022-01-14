@@ -1,19 +1,9 @@
-:root {
-	--light-gray: #F0F0F0;
-	--dark-gray: #D3D3D3;
-	--green: #81D133;
-}
-
 .circle {
 	margin-right: .25rem;
 }
 
 .green {
 	color: var(--green)
-}
-
-.clear {
-	color: transparent
 }
 
 .row {

@@ -114,12 +114,12 @@ function FileList({displayFiles}: FileListProps) {
             </div>
             <div role="table" aria-label="File Management Table" >
         
-            <div className="grid-table-row" role="row">
-                <div role="columnheader" title="Selected"></div>
-                <div role="columnheader" title="Name">Name</div>
-                <div role="columnheader" title="Device">Device</div>
-                <div role="columnheader" title="Path">Path</div>
-                <div role="columnheader" title="Status">Status</div>
+            <div className="grid-table-row header" role="row">
+                <div role="columnheader" className="flex-cell clear screen-reader-only">Selected</div>
+                <div role="columnheader" className="flex-cell">Name</div>
+                <div role="columnheader" className="flex-cell">Device</div>
+                <div role="columnheader" className="flex-cell">Path</div>
+                <div role="columnheader" className="flex-cell">Status</div>
             </div>
                 {files.map((file, i) => {
                     return <Row file={file} index={i} updateSelect={updateSelect} key={i}/>
