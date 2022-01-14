@@ -1,0 +1,15 @@
+.action-bar {
+	display: grid;
+	grid-template-columns: 5% 15% 50%;
+	padding: 1% 0;
+	padding-left: .18%;
+}
+
+.select-count, .download {
+	font-size: large;
+}
+
+.download {
+	background: none;
+	border: none;
+}

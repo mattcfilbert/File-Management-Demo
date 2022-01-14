@@ -33,7 +33,7 @@ function App() {
         <h1>File Management Demo</h1>
       </header>
       <main>
-        <FileList files={displayedFiles}/>
+        <FileList displayFiles={displayedFiles}/>
       </main>
     </div>
   );
