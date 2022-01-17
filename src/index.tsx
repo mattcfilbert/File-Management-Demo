@@ -3,10 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { apiJSON } from './mocks/apipayload.mock';
+import { intakeData } from './utils/ApiPayloadUtils';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App apiOutput={apiJSON} intakeData={intakeData}/>
   </React.StrictMode>,
   document.getElementById('root')
 );

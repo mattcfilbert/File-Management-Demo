@@ -3,7 +3,10 @@ import userEvent from '@testing-library/user-event'
 import DisplayFile from '../../types/DisplayFile';
 import FileList from './FileList';
 
-afterEach(cleanup);
+afterEach(() => {
+    cleanup()
+    jest.restoreAllMocks()
+});
 
 function generateTestFiles(both = false) {
     const testFile1 = {checked: false, name: "Test", status: "available", path: "root/documents/doc.txt", device: "Greyjoy"}
