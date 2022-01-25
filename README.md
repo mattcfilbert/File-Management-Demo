@@ -14,7 +14,7 @@
 ## With more time...
 
 - Further review accessibility (was considering an aria live region, but decided against due to inputs being updated within)
-- Test JSON sanitization utils
+- ~Test JSON sanitization utils~ (now has basic testing)
 - Invest more time into responsive design (e.g. deeper dive into views beyond mobile and laptop/tablet)
 - Likely revisted the check management logic and moved the Action Bar into its own component (single responsibility principle)
 
