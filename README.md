@@ -2,7 +2,7 @@
 
 ## Constraints
 
-- Make a fully responsive, secure, performant, and accessible file management system in under 4 hours while rewatching Wheel of Time in the background (I wasn't totally old at first, but episode 6 really turned me around and made me more appreicate the ones that came before it, but I digress)
+- Make a fully responsive, secure, performant, and accessible file management system in under 4 hours while rewatching Wheel of Time in the background (I wasn't totally sold at first, but episode 6 really turned me around and made me more appreicate the ones that came before it, but I digress)
 - Strictly limit the tools you can use (e.g. no component libraries)
 
 ## Tools Used
